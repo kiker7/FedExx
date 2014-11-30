@@ -57,9 +57,9 @@ public class Map {
 			nTree++;
 			adjustShortestPath();
 		}
-		
+
 		displayPaths();
-		
+
 		nTree = 0;
 		for (int k = 0; k < nCity; k++)
 			cityList[k].isInTree = false;
@@ -76,34 +76,34 @@ public class Map {
 		}
 		return indexMin;
 	}
-	
-	public void adjustShortestPath(){
+
+	public void adjustShortestPath() {
 		int column = 1;
-		
-		while(column < nCity){
-			if(cityList[column].isInTree){
+
+		while (column < nCity) {
+			if (cityList[column].isInTree) {
 				column++;
 				continue;
 			}
 			int currentToFringe = adjMat[currentCity][column];
 			int startToFringe = startToCurrent + currentToFringe;
 			int sPathDist = shortestPath[column].distance;
-			
-			if(startToFringe < sPathDist){
+
+			if (startToFringe < sPathDist) {
 				shortestPath[column].parentCity = currentCity;
 				shortestPath[column].distance = startToFringe;
 			}
 			column++;
 		}
 	}
-	
-	//-------------------------------------------------------------------------------//
+
+	// -------------------------------------------------------------------------------//
 	// POMOCNICZA FUNKCJA DO WYSWIETLANIA
-	
-	public void displayPaths(){
-		for(int j = 0; j < nCity; j++){
+
+	public void displayPaths() {
+		for (int j = 0; j < nCity; j++) {
 			System.out.print(cityList[j].cityName + "=");
-			if(shortestPath[j].distance == INFINITY)
+			if (shortestPath[j].distance == INFINITY)
 				System.out.print("inf");
 			else
 				System.out.print(shortestPath[j].distance);

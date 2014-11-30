@@ -2,4 +2,13 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="dijkstra.DistanceParent"/>
 <fullyQualifiedTypeName name="dijkstra.Map"/>
+<fullyQualifiedTypeName name="io.FileReader"/>
+<fullyQualifiedTypeName name="java.io.BufferedReader"/>
+<fullyQualifiedTypeName name="java.io.Reader"/>
+<fullyQualifiedTypeName name="java.io.FileReader"/>
+<fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="java.util.Map"/>
+<fullyQualifiedTypeName name="io.MapFileReader"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
 </qualifiedTypeNameHistroy>

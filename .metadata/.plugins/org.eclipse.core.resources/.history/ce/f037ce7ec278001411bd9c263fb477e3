@@ -1,0 +1,10 @@
+package io;
+import java.io.*;
+import dijkstra.Map;
+
+public class FileReader {
+	
+	public void mapReader(File fileName ){
+		Map map = new Map();
+	}
+}

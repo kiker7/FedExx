@@ -1,0 +1,21 @@
+package io;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.Reader;
+
+import dijkstra.Map;
+
+public class MapFileReader {
+	
+	public void mapReader(File fileName ) throws IOException{
+		Map map = new Map();
+		BufferedReader input = null;
+		try{
+			input = new BufferedReader(new FileReader(fileName));
+			
+		}
+	}
+
+}

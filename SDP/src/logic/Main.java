@@ -2,11 +2,12 @@ package logic;
 
 import dijkstra.*;
 
-
 public class Main {
 
 	public static void main(String[] args){
+	
 		Map theMap = new Map();
+		
 		theMap.addCity("Warszawa");
 		theMap.addCity("Radom");
 		theMap.addCity("Tarnobrzeg");
