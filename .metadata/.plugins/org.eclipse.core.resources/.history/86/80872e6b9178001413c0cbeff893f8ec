@@ -1,0 +1,16 @@
+package dijkstra;
+
+public class Map {
+	
+	private final int MAX_CITIES = 20;
+	private final int INFINITY = 1000000;
+	private City cityList[];
+	private int adjMat[][];
+	private int nCity;
+	private int nTree;
+	private DistanceParent shortestPath[];
+	private int currentCity;
+	private int startToCurrent;
+	
+	
+}
