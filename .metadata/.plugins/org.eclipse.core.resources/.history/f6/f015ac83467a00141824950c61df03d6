@@ -7,6 +7,7 @@ import java.io.IOException;
 
 import logic.Order;
 import data_structure.Heap;
+import data_structure.Queue;
 
 public class OrderReadTest {
 
@@ -14,9 +15,6 @@ public class OrderReadTest {
 		OrderRead rd = new OrderRead();
 		File file = new File(args[0]);
 		Heap<Order> list = rd.orderRead(file);
-		while(!list.isEmpty()) {
-			System.out.println(list.pop());
-			
-		}
+		System.out.println(list);
 	}
 }

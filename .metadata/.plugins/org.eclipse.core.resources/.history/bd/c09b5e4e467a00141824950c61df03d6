@@ -34,7 +34,7 @@ public class Heap<T extends Comparable<T>> implements Queue<T> {
 		return tmp;
 	}
 
-	private void heapUp() {
+	public void heapUp() {
 		int i = n;
 		int p = (n - 1) / 2;
 		while (i > 0 && get(p).compareTo(get(i)) < 0) {
