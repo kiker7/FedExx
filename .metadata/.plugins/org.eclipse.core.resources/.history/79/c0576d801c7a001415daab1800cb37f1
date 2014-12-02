@@ -1,0 +1,26 @@
+package logic;
+
+public class Order {
+
+	private int id;
+	private int baseCity;
+	private int orderCity;
+	private String name;
+	private int priority;
+	
+	public Order(int iD, int bCity, int oCity, String nm, int pt){
+		setId(iD);
+		baseCity = bCity;
+		orderCity = oCity;
+		name = nm;
+		priority = pt;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+}

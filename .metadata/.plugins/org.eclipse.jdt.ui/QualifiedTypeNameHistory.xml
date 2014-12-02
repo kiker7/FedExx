@@ -9,9 +9,12 @@
 <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="io.MapFileReader"/>
-<fullyQualifiedTypeName name="java.io.IOException"/>
 <fullyQualifiedTypeName name="io.MapRead"/>
-<fullyQualifiedTypeName name="data_structure.Heap"/>
 <fullyQualifiedTypeName name="dijkstra.MapRead"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="data_structure.Queue"/>
 <fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="data_structure.Heap"/>
+<fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="logic.Order"/>
 </qualifiedTypeNameHistroy>
