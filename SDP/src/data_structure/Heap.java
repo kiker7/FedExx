@@ -1,21 +1,39 @@
 package data_structure;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Heap.
+ *
+ * @param <T> the generic type
+ */
 public class Heap<T extends Comparable<T>> implements Queue<T> {
-	
-	
-	
+
+	/** The heap. */
 	private Comparable[] heap;
+	
+	/** The n. */
 	private int n;
 
+	/**
+	 * Instantiates a new heap.
+	 */
 	public Heap() {
 		n = 0;
 		heap = new Comparable[30];
 	}
 
+	/**
+	 * Checks if is empty.
+	 *
+	 * @return true, if is empty
+	 */
 	public boolean isEmpty() {
 		return n == 0;
 	}
 
+	/* (non-Javadoc)
+	 * @see data_structure.Queue#push(java.lang.Comparable)
+	 */
 	@Override
 	public void push(T value) {
 		heap[n] = value;
@@ -23,6 +41,9 @@ public class Heap<T extends Comparable<T>> implements Queue<T> {
 		n++;
 	}
 
+	/* (non-Javadoc)
+	 * @see data_structure.Queue#pop()
+	 */
 	@Override
 	public T pop() {
 		T tmp = null;
@@ -34,6 +55,9 @@ public class Heap<T extends Comparable<T>> implements Queue<T> {
 		return tmp;
 	}
 
+	/**
+	 * Heap up.
+	 */
 	private void heapUp() {
 		int i = n;
 		int p = (n - 1) / 2;
@@ -44,6 +68,12 @@ public class Heap<T extends Comparable<T>> implements Queue<T> {
 		}
 	}
 
+	/**
+	 * Swap.
+	 *
+	 * @param p the p
+	 * @param i the i
+	 */
 	private void swap(int p, int i) {
 		T tmp;
 		tmp = get(p);
@@ -51,6 +81,9 @@ public class Heap<T extends Comparable<T>> implements Queue<T> {
 		heap[i] = tmp;
 	}
 
+	/**
+	 * Heap down.
+	 */
 	private void heapDown() {
 		int i = 0;
 		int c = 2 * i + 1;
@@ -67,18 +100,26 @@ public class Heap<T extends Comparable<T>> implements Queue<T> {
 		}
 	}
 
-	
+	/**
+	 * Gets the.
+	 *
+	 * @param i the i
+	 * @return the t
+	 */
 	private T get(int i) {
 		@SuppressWarnings("unchecked")
 		T t = (T) heap[i];
 		return t;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		String result = new String();
 		for (int i = 0; i < n; i++) {
-			result += get(i).toString() +'\n';
+			result += get(i).toString() + '\n';
 		}
 		return result;
 	}

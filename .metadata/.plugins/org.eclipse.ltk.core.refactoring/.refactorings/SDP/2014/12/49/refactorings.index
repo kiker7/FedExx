@@ -12,3 +12,5 @@
 1417529260910	Encapsulate field 'name'
 1417529267551	Encapsulate field 'orderCity'
 1417537861479	Extract local variable 't'
+1417550841875	Delete element
+1417553357888	Delete element

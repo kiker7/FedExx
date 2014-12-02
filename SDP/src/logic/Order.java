@@ -7,36 +7,44 @@ public class Order implements Comparable<Order> {
 	private int orderCity;
 	private String name;
 	private int priority;
-	
-	public Order(int iD, int base, int ocity, String nm, int pr){
+
+	/**
+	 * Instantiates a new order.
+	 *
+	 * @param iD the i d
+	 * @param base the base
+	 * @param ocity the ocity
+	 * @param nm the nm
+	 * @param pr the pr
+	 */
+	public Order(int iD, int base, int ocity, String nm, int pr) {
 		id = iD;
 		baseCity = base;
 		orderCity = ocity;
 		name = nm;
 		priority = pr;
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		String result = id + " " + baseCity + " "+ orderCity + " " + name + " " + priority;
+		String result = id + " " + baseCity + " " + orderCity + " " + name
+				+ " " + priority;
 		return result;
 	}
 
-
 	@Override
-	public int compareTo(Order o) {	
+	public int compareTo(Order o) {
 		return priority - o.getPriority();
 	}
 
-	public int getPriority(){
+	public int getPriority() {
 		return priority;
 	}
-	
-	public void setPriority(int pr){
+
+	public void setPriority(int pr) {
 		priority = pr;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -68,8 +76,5 @@ public class Order implements Comparable<Order> {
 	public void setOrderCity(int orderCity) {
 		this.orderCity = orderCity;
 	}
-	
-	
+
 }
-
-

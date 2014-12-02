@@ -7,8 +7,19 @@ import java.io.IOException;
 
 import dijkstra.Map;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MapRead.
+ */
 public class MapRead {
 
+	/**
+	 * Map read.
+	 *
+	 * @param fileName the file name
+	 * @return the map
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public Map mapRead(File fileName) throws IOException {
 		Map map = new Map();
 		BufferedReader input = null;

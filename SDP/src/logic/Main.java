@@ -11,11 +11,11 @@ public class Main {
 
 	public static void main(String[] args) throws IOException{
 		
-		File filename = new File(args[0]);
+		//File filename = new File(args[0]);
 		MapRead reader = new MapRead();
-		Map theMap = reader.mapRead(filename);
+		Map theMap = reader.mapRead( new File(args[0]));
 		System.out.println("Najkrotsze œcie¿ki:");
-		theMap.path(0);
-		System.out.println("");
+		theMap.path(2);
+		System.out.println(" okok");
 	}
 }

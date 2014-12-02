@@ -1,17 +1,40 @@
 package dijkstra;
 
+/**
+ * The Class Map.
+ */
 public class Map {
 
+	/** The max cities. */
 	private final int MAX_CITIES = 20;
+	
+	/** The infinity. */
 	private final int INFINITY = 100000;
+	
+	/** The city list. */
 	private City cityList[];
+	
+	/** The adj mat. */
 	private int adjMat[][];
+	
+	/** The n city. */
 	private int nCity;
+	
+	/** The n tree. */
 	private int nTree;
+	
+	/** The shortest path. */
 	private DistanceParent shortestPath[];
+	
+	/** The current city. */
 	private int currentCity;
+	
+	/** The start to current. */
 	private int startToCurrent;
 
+	/**
+	 * Instantiates a new map.
+	 */
 	public Map() {
 		cityList = new City[MAX_CITIES];
 		adjMat = new int[MAX_CITIES][MAX_CITIES];
@@ -25,14 +48,31 @@ public class Map {
 		shortestPath = new DistanceParent[MAX_CITIES];
 	}
 
+	/**
+	 * Adds the city.
+	 *
+	 * @param name the name
+	 */
 	public void addCity(String name) {
 		cityList[nCity++] = new City(name);
 	}
 
+	/**
+	 * Adds the edge.
+	 *
+	 * @param start the start
+	 * @param end the end
+	 * @param weight the weight
+	 */
 	public void addEdge(int start, int end, int weight) {
 		adjMat[start][end] = weight;
 	}
 
+	/**
+	 * Path.
+	 *
+	 * @param start the start
+	 */
 	public void path(int start) {
 		int startTree = start;
 		cityList[startTree].isInTree = true;
@@ -65,6 +105,11 @@ public class Map {
 			cityList[k].isInTree = false;
 	}
 
+	/**
+	 * Gets the min.
+	 *
+	 * @return the min
+	 */
 	public int getMin() {
 		int minDistance = INFINITY;
 		int indexMin = 0;
@@ -77,6 +122,9 @@ public class Map {
 		return indexMin;
 	}
 
+	/**
+	 * Adjust shortest path.
+	 */
 	public void adjustShortestPath() {
 		int column = 1;
 
@@ -100,6 +148,9 @@ public class Map {
 	// -------------------------------------------------------------------------------//
 	// POMOCNICZA FUNKCJA DO WYSWIETLANIA
 
+	/**
+	 * Display paths.
+	 */
 	public void displayPaths() {
 		for (int j = 0; j < nCity; j++) {
 			System.out.print(cityList[j].cityName + "=");

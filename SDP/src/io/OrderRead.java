@@ -9,10 +9,21 @@ import logic.Order;
 import data_structure.Heap;
 import data_structure.Queue;
 
+/**
+ * The Class OrderRead.
+ */
 public class OrderRead {
 
+	/** The base city. */
 	private int baseCity;
 
+	/**
+	 * Order read.
+	 *
+	 * @param filename the filename
+	 * @return the heap
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public Heap<Order> orderRead(File filename) throws IOException {
 		Heap<Order> priorityQueue = new Heap<Order>();
 		BufferedReader input = null;
@@ -41,11 +52,23 @@ public class OrderRead {
 		return priorityQueue;
 	}
 
+	/**
+	 * Int parser.
+	 *
+	 * @param value the value
+	 * @return the int
+	 */
 	private int intParser(String value) {
 		int result = Integer.parseInt(value);
 		return result;
 	}
 
+	/**
+	 * Name read.
+	 *
+	 * @param p the p
+	 * @return the string
+	 */
 	private String nameRead(String[] p) {
 		String result = "";
 		for (int i = 3; i <= p.length - 2; i++)
