@@ -8,25 +8,10 @@ public class Order implements Comparable<Order> {
 	private String name;
 	private int priority;
 	
-	public Order(int iD, int base, int ocity, String nm, int pr){
-		id = iD;
-		baseCity = base;
-		orderCity = ocity;
-		name = nm;
-		priority = pr;
-	}
-	
-	
-	@Override
-	public String toString() {
-		String result = id + " " + baseCity + " "+ orderCity + " " + name + " " + priority;
-		return result;
-	}
-
 
 	@Override
 	public int compareTo(Order o) {	
-		return priority - o.getPriority();
+		return priority - o.priority;
 	}
 
 	public int getPriority(){

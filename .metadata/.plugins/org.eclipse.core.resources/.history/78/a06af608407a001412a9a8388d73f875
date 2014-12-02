@@ -13,8 +13,8 @@ public class OrderRead {
 
 	private int baseCity;
 
-	public Heap<Order> orderRead(File filename) throws IOException {
-		Heap<Order> priorityQueue = new Heap<Order>();
+	public Queue<Order> orderRead(File filename) throws IOException {
+		Queue<Order> priorityQueue = new Heap<Order>();
 		BufferedReader input = null;
 		try {
 			input = new BufferedReader(new FileReader(filename));

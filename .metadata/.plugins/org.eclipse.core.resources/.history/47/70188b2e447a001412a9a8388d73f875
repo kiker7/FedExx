@@ -26,7 +26,12 @@ public class Order implements Comparable<Order> {
 
 	@Override
 	public int compareTo(Order o) {	
-		return priority - o.getPriority();
+		if(priority > o.getPriority()){
+			return 1;
+		}else if(priority == o.getPriority()){
+			return 0;
+		}
+		return -1;
 	}
 
 	public int getPriority(){

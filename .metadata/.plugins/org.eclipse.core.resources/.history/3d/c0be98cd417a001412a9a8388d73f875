@@ -13,7 +13,6 @@ public class Order implements Comparable<Order> {
 		baseCity = base;
 		orderCity = ocity;
 		name = nm;
-		priority = pr;
 	}
 	
 	
@@ -26,7 +25,7 @@ public class Order implements Comparable<Order> {
 
 	@Override
 	public int compareTo(Order o) {	
-		return priority - o.getPriority();
+		return priority - o.priority;
 	}
 
 	public int getPriority(){

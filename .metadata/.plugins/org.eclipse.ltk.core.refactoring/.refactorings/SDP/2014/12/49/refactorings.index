@@ -11,3 +11,4 @@
 1417529248847	Encapsulate field 'baseCity'
 1417529260910	Encapsulate field 'name'
 1417529267551	Encapsulate field 'orderCity'
+1417537861479	Extract local variable 't'

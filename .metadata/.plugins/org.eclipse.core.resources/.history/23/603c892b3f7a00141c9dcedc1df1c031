@@ -9,12 +9,13 @@ import logic.Order;
 import data_structure.Heap;
 import data_structure.Queue;
 
+
 public class OrderRead {
 
 	private int baseCity;
-
-	public Heap<Order> orderRead(File filename) throws IOException {
-		Heap<Order> priorityQueue = new Heap<Order>();
+	
+	public Queue<Order> orderRead(File filename) throws IOException{
+		Queue<Order> priorityQueue = new Heap<Order>();
 		BufferedReader input = null;
 		try {
 			input = new BufferedReader(new FileReader(filename));
@@ -30,7 +31,7 @@ public class OrderRead {
 				oc = intParser(parts[2]);
 				cname = nameRead(parts);
 				pr = intParser(parts[parts.length - 1]);
-				priorityQueue.push(new Order(id, bc, oc, cname, pr));
+				priorityQueue.push(new Order(id,bc,oc,cname,pr));
 			}
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
@@ -40,15 +41,15 @@ public class OrderRead {
 		}
 		return priorityQueue;
 	}
-
-	private int intParser(String value) {
+	
+	private int intParser(String value){
 		int result = Integer.parseInt(value);
 		return result;
 	}
-
-	private String nameRead(String[] p) {
+	
+	private String nameRead(String [] p){
 		String result = "";
-		for (int i = 3; i <= p.length - 2; i++)
+		for(int i = 3; i <= p.length - 2; i++)
 			result += p[i];
 		return result;
 	}

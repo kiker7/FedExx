@@ -12,9 +12,12 @@
 <fullyQualifiedTypeName name="io.MapRead"/>
 <fullyQualifiedTypeName name="dijkstra.MapRead"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
-<fullyQualifiedTypeName name="data_structure.Queue"/>
-<fullyQualifiedTypeName name="java.io.File"/>
-<fullyQualifiedTypeName name="data_structure.Heap"/>
 <fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="java.io.File"/>
+<fullyQualifiedTypeName name="data_structure.Queue"/>
 <fullyQualifiedTypeName name="logic.Order"/>
+<fullyQualifiedTypeName name="class_test.OrderReadTest"/>
+<fullyQualifiedTypeName name="io.OrderRead"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="data_structure.Heap"/>
 </qualifiedTypeNameHistroy>
