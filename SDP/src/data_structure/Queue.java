@@ -1,5 +1,8 @@
 package data_structure;
 
-public class Queue {
+public interface Queue<V extends Comparable<V>> {
 
+	void push(V value);
+
+	V pop();
 }

@@ -1,5 +1,83 @@
 package data_structure;
 
-public class Heap {
+public class Heap<T extends Comparable<T>> implements Queue<T> {
+	
+	
+	
+	private Comparable[] heap;
+	private int n;
 
+	public Heap() {
+		n = 0;
+		heap = new Comparable[30];
+	}
+
+	public boolean isEmpty() {
+		return n == 0;
+	}
+
+	@Override
+	public void push(T value) {
+		heap[n] = value;
+		heapUp();
+		n++;
+	}
+
+	@Override
+	public T pop() {
+		T tmp = null;
+		if (!isEmpty()) {
+			tmp = get(0);
+			heap[0] = get(--n);
+			heapDown();
+		}
+		return tmp;
+	}
+
+	public void heapUp() {
+		int i = n;
+		int p = (n - 1) / 2;
+		while (i > 0 && get(p).compareTo(get(i)) == -1) {
+			swap(p, i);
+			i = p;
+			p = (i - 1) / 2;
+		}
+	}
+
+	private void swap(int p, int i) {
+		T tmp;
+		tmp = get(p);
+		heap[p] = get(i);
+		heap[i] = tmp;
+	}
+
+	private void heapDown() {
+		int i = 0;
+		int c = 2 * i + 1;
+		while (c < n) {
+			if (c + 1 < n && get(c + 1).compareTo(get(c)) == 1) {
+				c++;
+			}
+			if (get(c).compareTo(get(i)) <= 0) {
+				return;
+			}
+			swap(i, c);
+			i = c;
+			c = 2 * i + 1;
+		}
+	}
+
+	
+	private T get(int i) {
+		return (T) heap[i];
+	}
+
+	@Override
+	public String toString() {
+		String result = new String();
+		for (int i = 0; i < n; i++) {
+			result += get(i).toString() + ' ';
+		}
+		return result;
+	}
 }

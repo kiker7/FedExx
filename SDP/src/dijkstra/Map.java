@@ -33,8 +33,8 @@ public class Map {
 		adjMat[start][end] = weight;
 	}
 
-	public void path() {
-		int startTree = 0;
+	public void path(int start) {
+		int startTree = start;
 		cityList[startTree].isInTree = true;
 		nTree = 1;
 

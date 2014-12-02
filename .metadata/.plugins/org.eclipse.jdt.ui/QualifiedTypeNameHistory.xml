@@ -7,8 +7,11 @@
 <fullyQualifiedTypeName name="java.io.Reader"/>
 <fullyQualifiedTypeName name="java.io.FileReader"/>
 <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
-<fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="io.MapFileReader"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="io.MapRead"/>
+<fullyQualifiedTypeName name="data_structure.Heap"/>
+<fullyQualifiedTypeName name="dijkstra.MapRead"/>
+<fullyQualifiedTypeName name="java.io.File"/>
 </qualifiedTypeNameHistroy>

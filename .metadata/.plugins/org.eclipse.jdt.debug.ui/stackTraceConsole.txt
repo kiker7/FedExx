@@ -1,0 +1,1 @@
+<terminated, exit value: 1>C:\Program Files\Java\jre7\bin\javaw.exe (2 gru 2014, 10:36:46

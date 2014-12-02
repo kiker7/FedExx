@@ -1,30 +1,19 @@
 package logic;
 
+import java.io.File;
+import java.io.IOException;
+
 import dijkstra.*;
 
 public class Main {
 
-	public static void main(String[] args){
-	
-		Map theMap = new Map();
+	public static void main(String[] args) throws IOException{
 		
-		theMap.addCity("Warszawa");
-		theMap.addCity("Radom");
-		theMap.addCity("Tarnobrzeg");
-		theMap.addCity("Krakow");
-		theMap.addCity("Lublin");
-		
-		theMap.addEdge(0, 1, 50);
-		theMap.addEdge(0, 3, 80);
-		theMap.addEdge(1, 2, 60);
-		theMap.addEdge(1, 3, 90);
-		theMap.addEdge(2, 4, 40);
-		theMap.addEdge(3, 2, 20);
-		theMap.addEdge(3, 4, 70);
-		theMap.addEdge(4, 1, 50);
-		
+		File filename = new File(args[0]);
+		MapRead reader = new MapRead();
+		Map theMap = reader.mapRead(filename);
 		System.out.println("Najkrotsze œcie¿ki:");
-		theMap.path();
+		theMap.path(0);
 		System.out.println("");
 	}
 }
