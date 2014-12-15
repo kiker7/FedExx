@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-import dijkstra.Map;
+import dijsktra.Map;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -21,17 +21,19 @@ public class MapRead {
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	public Map mapRead(File fileName) throws IOException {
-		Map map = new Map();
 		BufferedReader input = null;
+		Map map = null;
 		try {
 			input = new BufferedReader(new FileReader(fileName));
 			String buffer;
+			buffer = input.readLine();
+			map = new Map(Integer.parseInt(buffer));
 			while ((buffer = input.readLine()) != null) {
 				String parts[] = buffer.split("\\s+");
 				if (parts[0].equals("#"))
 					continue;
 				if (parts.length == 2)
-					map.addCity(parts[1]);
+					map.addCity(Integer.parseInt(parts[0]),parts[1]);
 				else if (parts.length == 3)
 					map.addEdge(Integer.parseInt(parts[0]),
 							Integer.parseInt(parts[1]),

@@ -1,3 +1,4 @@
+5
 # miasta
 0 Radom
 1 Warszawa
@@ -6,7 +7,7 @@
 4 Poznañ
 
 # polaczenia
-0 1 10
+0 1 100
 2 3 15
 0 2 200
 1 3 10 

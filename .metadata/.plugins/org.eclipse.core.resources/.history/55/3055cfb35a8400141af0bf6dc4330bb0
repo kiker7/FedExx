@@ -1,0 +1,20 @@
+package dijsktra;
+
+public class Main {
+	public static void main(String[] args) {
+//		MapReader mReader = new MapReader();
+//		Map map = mReader.loadMap(new File(args[0]));
+		Map mapa = new Map(5);
+		mapa.addCity(0, "Radom");
+		mapa.addCity(1, "Warszawa");
+		mapa.addCity(2, "Olsztyn");
+		mapa.addCity(3, "Suwa³ki");
+		mapa.addCity(4, "Poznañ");
+		mapa.addEdge(0, 1, 3);
+		mapa.addEdge(1, 2, 1);
+		mapa.addEdge(2, 4, 1);
+		mapa.addEdge(0, 3, 3);
+		mapa.print();
+		System.out.println(mapa.getShortestPath(3, 1));
+	}
+}

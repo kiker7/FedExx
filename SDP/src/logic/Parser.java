@@ -9,7 +9,7 @@ import java.io.IOException;
 import javax.sound.midi.SysexMessage;
 
 import data_structure.Heap;
-import dijkstra.Map;
+import dijsktra.Map;
 
 public class Parser {
 
