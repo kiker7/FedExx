@@ -19,7 +19,9 @@ public class Logic {
 	public void supply() {
 		while (buffer.isAnyOrder()) {
 			for (int i = 0; i < parser.getNCars(); i++) {
-				carList[i].start();
+				System.out.println("funkcja supply" + i);
+				carList[i].run();
+				System.out.println("funkcja supply za run" + i);
 			}
 		}
 	}

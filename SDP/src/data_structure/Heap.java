@@ -48,18 +48,12 @@ public class Heap<T extends Comparable<T>> implements Queue<T> {
 	 */
 	@Override
 	public synchronized T pop() {
-		T tmp = null;
-		try{
-			wait();
+		T tmp = null;	
 			if (!isEmpty()) {
 				tmp = get(0);
 				heap[0] = get(--n);
 				heapDown();
 			}
-		}catch (InterruptedException e){
-			System.out.println(e.getMessage());
-		}
-		notifyAll();
 		return tmp;
 	}
 

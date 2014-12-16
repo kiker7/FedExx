@@ -1,0 +1,12 @@
+package logic2;
+
+public class Message {
+
+	private Trip [] tripList;
+	
+	public Message(){
+		for(int i = 0; i < 30; i++)
+			tripList[i] = new Trip();
+	}
+	
+}

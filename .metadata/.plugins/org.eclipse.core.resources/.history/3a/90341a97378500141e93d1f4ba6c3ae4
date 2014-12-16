@@ -1,0 +1,9 @@
+package logic2;
+
+public class Car {
+
+	public void supply(){
+		
+	}
+	
+}

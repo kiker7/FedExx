@@ -25,6 +25,10 @@ public class Map {
 		}
 	}
 
+	public int getVCAL(){
+		return visitedCityArrLength;
+	}
+	
 	public void addCity(int n, String name) {
 		cityNames[n] = name;
 	}

@@ -1,0 +1,11 @@
+package logic2;
+
+import java.util.ArrayList;
+
+public class Message {
+
+	private ArrayList<Trip> tripList;
+	
+	
+	
+}

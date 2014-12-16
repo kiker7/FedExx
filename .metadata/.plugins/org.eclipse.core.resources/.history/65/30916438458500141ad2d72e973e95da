@@ -1,0 +1,21 @@
+package logic2;
+
+import java.io.IOException;
+
+import logic2.Logic;
+import logic2.Parser;
+
+public class Test {
+
+	private static Parser p;
+	private static Logic l;
+	
+	public static void main(String[] args) throws IOException{
+		
+		p = new Parser();
+		p.parser(args);
+		l = new Logic(p);
+		l.allocation();
+		
+	}
+}

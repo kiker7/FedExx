@@ -5,9 +5,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-import logic.Order;
+import logic2.Order;
 import data_structure.Heap;
-import data_structure.Queue;
 
 /**
  * The Class OrderRead.
@@ -17,6 +16,7 @@ public class OrderRead {
 	/** The base city. */
 	private int baseCity;
 	private Order[] list;
+	private int count = 0;
 	
 	public OrderRead(){
 		list = new Order[30];
@@ -34,6 +34,10 @@ public class OrderRead {
 		return list;
 	}
 	
+	public int getOrderCount(){
+		return count;
+	}
+	
 	public Heap<Order> orderRead(File filename) throws IOException {
 		Heap<Order> priorityQueue = new Heap<Order>();
 		BufferedReader input = null;
@@ -41,7 +45,6 @@ public class OrderRead {
 			input = new BufferedReader(new FileReader(filename));
 			String buffer;
 			int id, bc, oc, pr;
-			int count = 0;
 			String cname;
 			buffer = input.readLine();
 			baseCity = Integer.parseInt(buffer);

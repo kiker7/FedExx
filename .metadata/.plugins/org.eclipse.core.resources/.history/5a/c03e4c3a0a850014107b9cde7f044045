@@ -1,0 +1,55 @@
+package logic;
+
+import data_structure.Heap;
+import dijsktra.Map;
+
+public class Car extends Thread {
+
+	private Order[] currentOrders;
+	private int value, nPacks, availablePack, oCount;
+	private boolean isFull;
+	private Map map;
+	private Buffer buf;
+	private Heap<Order> priorityQueue;
+	private Order currentOrder;
+	private int[] visitedCities;
+
+	public Car(Parser p, Buffer b) {
+		map = p.getMap();
+		buf = b;
+		priorityQueue = p.getHeap();
+		nPacks = p.getNPackInCar();
+		currentOrders = p.getOrdersList();
+		oCount = p.getOrderAmount();
+	}
+
+	public Order findOrderByCity(int c){
+		
+	}
+	
+	public void run() {
+		if ((currentOrder = priorityQueue.pop()) == null)
+			return;
+		buf.put(currentOrder.getId());
+		value = map.getShortestPath(currentOrder.getBaseCity(),
+				currentOrder.getOrderCity());
+		visitedCities = map.getVisitedCities();
+		
+		for(int i = 0 ; i < nPacks; i++){
+			if(map.getVCAL() -2 == i){
+				break;
+			}
+			for(int j = map.getVCAL() -1 ; j >1; j--){
+				
+			}
+			
+			
+			// jade po visitedCities , szukam zamowienia odpowiadajacego nr miasta 
+			// ze sciezki, robie to funkcja findOrderByCity , potem sprawdzam czy zamowienie
+			// jest dostepne, jesli tak to je biore jak nie ide dalej po tablicy visitedCities
+			// jesli licza paczek jest wieksza niz liczba miast na sciezce wychodze z petli
+			// if(visitedCityArrLength -2 == i) <--- wyjscie z petli
+			}
+		}
+
+}

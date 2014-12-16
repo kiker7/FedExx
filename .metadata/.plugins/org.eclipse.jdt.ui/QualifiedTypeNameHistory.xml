@@ -5,7 +5,6 @@
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="java.io.Reader"/>
 <fullyQualifiedTypeName name="java.io.FileReader"/>
-<fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
 <fullyQualifiedTypeName name="java.util.Map"/>
 <fullyQualifiedTypeName name="io.MapFileReader"/>
 <fullyQualifiedTypeName name="dijkstra.MapRead"/>
@@ -16,13 +15,19 @@
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="dijkstra.Map"/>
 <fullyQualifiedTypeName name="java.io.File"/>
-<fullyQualifiedTypeName name="io.MapRead"/>
 <fullyQualifiedTypeName name="javax.sound.midi.SysexMessage"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="dijsktra.Map"/>
 <fullyQualifiedTypeName name="java.lang.Comparable"/>
-<fullyQualifiedTypeName name="io.OrderRead"/>
-<fullyQualifiedTypeName name="data_structure.Heap"/>
 <fullyQualifiedTypeName name="java.lang.InterruptedException"/>
+<fullyQualifiedTypeName name="logic.Parser"/>
+<fullyQualifiedTypeName name="logic.Logic"/>
+<fullyQualifiedTypeName name="io.MapRead"/>
+<fullyQualifiedTypeName name="io.OrderRead"/>
+<fullyQualifiedTypeName name="logic2.Car"/>
+<fullyQualifiedTypeName name="data_structure.Heap"/>
+<fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="logic2.Message"/>
 </qualifiedTypeNameHistroy>

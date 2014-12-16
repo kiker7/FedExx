@@ -11,7 +11,10 @@ public class HeapTest {
 			h.push(i);
 		}
 		System.out.println(h);
-
+		System.out.println("nowa");
+		while (!h.isEmpty())	{
+			System.out.println(h.pop());
+		}
 	}
 
 }

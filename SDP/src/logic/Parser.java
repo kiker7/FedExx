@@ -26,6 +26,12 @@ public class Parser {
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.
 	 */
+	
+	public Parser(){
+		mReader = new MapRead();
+		oReader = new OrderRead();
+		
+	}
 
 	public Heap<Order> getHeap() {
 		return priorityList;
@@ -47,6 +53,10 @@ public class Parser {
 		return oReader.getOrderList();
 	}
 
+	public int getOrderAmount(){
+		return oReader.getOrderCount();
+	}
+	
 	public void parser(String[] args) throws IOException {
 		for (int i = 0; i < args.length; i++) {
 			switch (i) {
