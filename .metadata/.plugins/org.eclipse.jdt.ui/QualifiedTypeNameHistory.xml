@@ -10,16 +10,19 @@
 <fullyQualifiedTypeName name="io.MapFileReader"/>
 <fullyQualifiedTypeName name="dijkstra.MapRead"/>
 <fullyQualifiedTypeName name="java.io.IOException"/>
-<fullyQualifiedTypeName name="java.lang.Comparable"/>
 <fullyQualifiedTypeName name="data_structure.Queue"/>
 <fullyQualifiedTypeName name="logic.Order"/>
 <fullyQualifiedTypeName name="class_test.OrderReadTest"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="dijkstra.Map"/>
-<fullyQualifiedTypeName name="data_structure.Heap"/>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="io.MapRead"/>
-<fullyQualifiedTypeName name="io.OrderRead"/>
 <fullyQualifiedTypeName name="javax.sound.midi.SysexMessage"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="dijsktra.Map"/>
+<fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="io.OrderRead"/>
+<fullyQualifiedTypeName name="data_structure.Heap"/>
+<fullyQualifiedTypeName name="java.lang.InterruptedException"/>
 </qualifiedTypeNameHistroy>

@@ -1,8 +1,37 @@
 package logic;
 
-public class Car {
-	
-	private Order[]  currentOrders;
-	private int currentCity;
+import data_structure.Heap;
+import dijsktra.Map;
+
+public class Car extends Thread {
+
+	private Order[] currentOrders;
+	private int value, nPacks, availablePack;
 	private boolean isFull;
+	private Map map;
+	private Buffer buf;
+	private Heap<Order> priorityQueue;
+	private Order currentOrder;
+	private int[] visitedCities;
+
+	public Car(Parser p, Buffer b) {
+		map = p.getMap();
+		buf = b;
+		priorityQueue = p.getHeap();
+		nPacks = p.getNPackInCar();
+	}
+
+	public void run() {
+		if ((currentOrder = priorityQueue.pop()) == null)
+			return;
+		buf.put(currentOrder.getId());
+		value = map.getShortestPath(currentOrder.getBaseCity(),
+				currentOrder.getOrderCity());
+		visitedCities = map.getVisitedCities();
+		
+		for(int i = 0 ; i < nPacks; i++){
+			
+			}
+		}
+
 }

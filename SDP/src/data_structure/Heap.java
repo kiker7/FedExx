@@ -30,6 +30,8 @@ public class Heap<T extends Comparable<T>> implements Queue<T> {
 	public boolean isEmpty() {
 		return n == 0;
 	}
+	
+	
 
 	/* (non-Javadoc)
 	 * @see data_structure.Queue#push(java.lang.Comparable)
@@ -45,13 +47,19 @@ public class Heap<T extends Comparable<T>> implements Queue<T> {
 	 * @see data_structure.Queue#pop()
 	 */
 	@Override
-	public T pop() {
+	public synchronized T pop() {
 		T tmp = null;
-		if (!isEmpty()) {
-			tmp = get(0);
-			heap[0] = get(--n);
-			heapDown();
+		try{
+			wait();
+			if (!isEmpty()) {
+				tmp = get(0);
+				heap[0] = get(--n);
+				heapDown();
+			}
+		}catch (InterruptedException e){
+			System.out.println(e.getMessage());
 		}
+		notifyAll();
 		return tmp;
 	}
 

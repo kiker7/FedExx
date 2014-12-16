@@ -4,8 +4,8 @@ public class Map {
 	private final int INFINITY = 1000000000;
 	private String[] cityNames = null;
 	private Edge[][] neighborhoodMatrix = null;
-	private int limit;
-	private int [] visitedCities = null;
+	private int limit, visitedCityArrLength;
+	private int[] visitedCities = null;
 
 	public Map(int n) {
 		limit = n;
@@ -73,20 +73,16 @@ public class Map {
 			path += shortest;
 			i = nextNode;
 		}
-
+		visitedCityArrLength = count;
 		clearVisit();
-
-		for(int x : visitedCities)
-			System.out.println(x);
-		
 		return path;
 	}
-	
-	public int[] getVisitedCities(){
+
+	public int[] getVisitedCities() {
 		return visitedCities;
 	}
-	
-	private void clearVisit(){
+
+	private void clearVisit() {
 		for (int i = 0; i < limit; i++)
 			for (int j = 0; j < limit; j++)
 				neighborhoodMatrix[i][j].unvisit();

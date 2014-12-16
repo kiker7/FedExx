@@ -1,0 +1,22 @@
+package logic;
+
+import dijsktra.Map;
+
+public class Car extends Thread {
+	
+	private Order[]  currentOrders;
+	private int currentCity;
+	private boolean isFull;
+	private Map map;
+	private Buffer buf;
+
+	public Car(Parser p, Buffer b){
+		map = p.getMap();
+		buf = b;
+	}
+	
+	public void run(){
+		
+	}
+	
+}

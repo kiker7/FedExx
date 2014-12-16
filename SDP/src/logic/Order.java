@@ -7,6 +7,7 @@ public class Order implements Comparable<Order> {
 	private int orderCity;
 	private String name;
 	private int priority;
+	private boolean isTaken;
 
 	/**
 	 * Instantiates a new order.
@@ -25,6 +26,14 @@ public class Order implements Comparable<Order> {
 		priority = pr;
 	}
 
+	public boolean getTaken(){
+		return isTaken;
+	}
+	
+	public void setTaken(){
+		isTaken = true;
+	}
+	
 	@Override
 	public String toString() {
 		String result = id + " " + baseCity + " " + orderCity + " " + name

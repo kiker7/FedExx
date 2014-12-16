@@ -1,0 +1,12 @@
+package logic;
+
+import dijsktra.Map;
+
+public class Car extends Thread {
+	
+	private Order[]  currentOrders;
+	private int currentCity;
+	private boolean isFull;
+	private Map map;
+	
+}
