@@ -25,6 +25,10 @@ public class Map {
 		}
 	}
 
+	public String [] getCityNames(){
+		return cityNames;
+	}
+	
 	public int getVCAL(){
 		return visitedCityArrLength;
 	}

@@ -1,0 +1,16 @@
+package logic2;
+
+import java.util.ArrayList;
+
+public class Trip {
+
+	private ArrayList<MessageControl> messageList;
+	
+	public Trip(){
+		messageList = new ArrayList<MessageControl>();
+	}
+	
+	public void addNewMessageControl(MessageControl message){
+		messageList.add(message);
+	}
+}

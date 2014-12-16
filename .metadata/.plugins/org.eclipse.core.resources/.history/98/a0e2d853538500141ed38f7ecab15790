@@ -1,0 +1,12 @@
+package logic2;
+
+public class MessageControl {
+
+	private int cityNumberInPath;
+	private int orderNumberInPath;
+	
+	public MessageControl(int c, int o){
+		cityNumberInPath = c;
+		orderNumberInPath = o;
+	}
+}

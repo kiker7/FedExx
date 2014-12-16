@@ -1,0 +1,33 @@
+package logic2;
+
+import java.util.ArrayList;
+
+public class Trip {
+
+	private ArrayList<MessageControl> messageList;
+	private ArrayList<String> logList;
+	
+	public Trip(){
+		messageList = new ArrayList<MessageControl>();
+		logList = new ArrayList<String>();
+	}
+	
+	public void addMessageControl(MessageControl mes){
+		messageList.add(mes);
+	}
+	
+	public void createLogList(){
+		int [] idList = new int[30];
+		int i = 0;
+		String messageIdList = "";
+		
+		for(MessageControl x : messageList)
+			idList[i++] = x.getOrderNumberInPath();
+		
+		for(int j = i; j > 0; j--)
+			messageIdList += (Integer.toString(idList[j]) + " ");
+		
+		
+		
+	}
+}

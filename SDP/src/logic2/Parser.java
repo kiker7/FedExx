@@ -17,6 +17,7 @@ public class Parser {
 	private int nCars, nPackInCar;
 	private MapRead mReader;
 	private OrderRead oReader;
+	private int baseCity;
 
 	/**
 	 * Parser.
@@ -33,6 +34,10 @@ public class Parser {
 		
 	}
 
+	public int getBaseCity(){
+		return baseCity;
+	}
+	
 	public Heap<Order> getHeap() {
 		return priorityList;
 	}
@@ -65,6 +70,7 @@ public class Parser {
 				break;
 			case 1:
 				priorityList = oReader.orderRead(new File(args[1]));
+				baseCity = oReader.getBaseCity();
 				break;
 			case 2:
 				nCars = Integer.parseInt(args[2]);

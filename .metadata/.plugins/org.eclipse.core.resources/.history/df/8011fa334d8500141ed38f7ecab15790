@@ -1,0 +1,16 @@
+package logic2;
+
+public class Car {
+
+	private int[] visitedCities;
+	private int nPack;
+	private boolean isFull;
+	
+	public boolean isFull(){
+		return isFull;
+	}
+	
+	public void setVisitedCitiesArray(int [] arr){
+		visitedCities = arr;
+	}
+}

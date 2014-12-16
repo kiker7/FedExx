@@ -38,6 +38,10 @@ public class OrderRead {
 		return count;
 	}
 	
+	public int getBaseCity(){
+		return baseCity;
+	}
+	
 	public Heap<Order> orderRead(File filename) throws IOException {
 		Heap<Order> priorityQueue = new Heap<Order>();
 		BufferedReader input = null;

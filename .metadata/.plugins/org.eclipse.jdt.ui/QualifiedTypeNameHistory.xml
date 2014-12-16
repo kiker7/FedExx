@@ -28,6 +28,8 @@
 <fullyQualifiedTypeName name="logic2.Car"/>
 <fullyQualifiedTypeName name="data_structure.Heap"/>
 <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="logic2.Message"/>
+<fullyQualifiedTypeName name="logic2.MessageControl"/>
+<fullyQualifiedTypeName name="java.awt.List"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

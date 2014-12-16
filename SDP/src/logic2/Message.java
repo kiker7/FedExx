@@ -6,13 +6,21 @@ public class Message {
 
 	private ArrayList<Trip> tripList;
 	
+	
+	public Message(){ 
+		tripList = new ArrayList<Trip>();
+	}
+	
 	public void setNewTrip(Trip e){
 		tripList.add(e);
 	}
 	
-	public void setNewMessageInTrip(String message){
-		tripList.get(tripList.size() - 1).addNewMessage(message);
+	public void displayLogTrips(){
+		for(Trip n: tripList){
+			n.createLogList();
+			System.out.println(n.getLogList());
+		}
+		
 	}
-	
 	
 }

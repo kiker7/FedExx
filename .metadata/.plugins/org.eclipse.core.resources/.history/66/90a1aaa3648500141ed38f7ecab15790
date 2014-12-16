@@ -1,0 +1,43 @@
+package logic2;
+
+import java.awt.List;
+import java.util.ArrayList;
+
+public class Trip {
+
+	private ArrayList<MessageControl> messageList;
+	private ArrayList<String> logList;
+	private String[] cityNames = null;
+	
+	public Trip(){
+		messageList = new ArrayList<MessageControl>();
+		logList = new ArrayList<String>();
+	}
+	
+	public void addMessageControl(MessageControl mes){
+		messageList.add(mes);
+	}
+	
+	public void createLogList(){
+		ArrayList<Integer> idList = new ArrayList<Integer>();
+
+	
+		
+		for(MessageControl x : messageList)
+			idList.add(x.getOrderNumberInPath());
+	
+		
+		for(MessageControl n : messageList){
+			logList.add(n.getOrderTime()+ " dostarczono przesy³ke " + n.getOrderNumberInPath() + " do miasta " + n.getCityNumberInPath());
+		}
+		
+		logList.add("0 pobrano przesy³ki " + idList + "z miasta  bazy");
+		
+		
+	}
+
+	public ArrayList<String> getLogList(){
+		return logList;
+	}
+	
+}

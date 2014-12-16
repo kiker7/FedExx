@@ -1,0 +1,12 @@
+package class_test;
+
+public class Tescik {
+
+	public static void main(String [] args){
+		String a = "";
+		int[] b = {2,3,4,5,};
+		System.out.println(b.toString());
+		
+	}
+	
+}
