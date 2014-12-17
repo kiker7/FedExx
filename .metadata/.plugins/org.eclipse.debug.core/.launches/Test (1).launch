@@ -7,6 +7,6 @@
 <listEntry value="1"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="logic2.Test"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="mapa.txt zlecenia.txt 3 2"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="mapa.txt zlecenia.txt 1 3"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="SDP"/>
 </launchConfiguration>

@@ -32,4 +32,13 @@
 <fullyQualifiedTypeName name="logic2.MessageControl"/>
 <fullyQualifiedTypeName name="java.awt.List"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="gui.SimpleGraph"/>
+<fullyQualifiedTypeName name="edu.uci.ics.jung.graph.Graph"/>
+<fullyQualifiedTypeName name="edu.uci.ics.jung.graph.SparseMultigraph"/>
+<fullyQualifiedTypeName name="edu.uci.ics.jung.algorithms.layout.Layout"/>
+<fullyQualifiedTypeName name="edu.uci.ics.jung.algorithms.layout.CircleLayout"/>
+<fullyQualifiedTypeName name="java.awt.Dimension"/>
+<fullyQualifiedTypeName name="edu.uci.ics.jung.visualization.BasicVisualizationServer"/>
+<fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="java.io.FileNotFoundException"/>
 </qualifiedTypeNameHistroy>

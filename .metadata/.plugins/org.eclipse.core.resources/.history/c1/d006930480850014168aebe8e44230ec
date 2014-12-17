@@ -1,0 +1,17 @@
+package gui;
+
+import java.io.FileNotFoundException;
+
+public class RunTest {
+
+	public static void main(String[] args) throws FileNotFoundException  {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run()
+            {
+                new SimpleGraphView().setVisible(true);
+            }
+        });
+    }
+	
+}

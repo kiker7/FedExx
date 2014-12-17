@@ -1,0 +1,11 @@
+package gui;
+
+import java.io.FileNotFoundException;
+
+public class RunTest {
+
+	public static void main(String[] args)  {
+        System.out.println("faza");
+    }
+	
+}

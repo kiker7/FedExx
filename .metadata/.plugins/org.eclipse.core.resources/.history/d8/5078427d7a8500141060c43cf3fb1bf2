@@ -1,0 +1,22 @@
+package gui;
+
+import java.awt.Dimension;
+
+import javax.swing.JFrame;
+
+import edu.uci.ics.jung.algorithms.layout.CircleLayout;
+import edu.uci.ics.jung.algorithms.layout.Layout;
+import edu.uci.ics.jung.visualization.BasicVisualizationServer;
+
+public class TestFrame {
+
+	 public static void main(String[] args) {
+	        
+	        JFrame frame = new JFrame("Simple Graph View");
+	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	        frame.pack();
+	        frame.setVisible(true);       
+	    }
+	
+}
