@@ -83,8 +83,8 @@ public class Logic {
 			}
 
 		}
-		messenger.createLogListForTrips();
-		//messenger.displayLogTrips();
+		// messenger.createLogListForTrips();
+		messenger.displayLogTrips();
 	}
 
 }

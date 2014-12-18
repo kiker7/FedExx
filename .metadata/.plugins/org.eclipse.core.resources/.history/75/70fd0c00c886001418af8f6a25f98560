@@ -10,9 +10,9 @@ public class Trip {
 	private String[] cityNames = null;
 	private int baseCity;
 	private ArrayList<Comunicate> comunicateList;
-	private ArrayList<String> orderNames;
+	private String[] orderNames;
 
-	public Trip(String[] n, int b, ArrayList<String> o) {
+	public Trip(String[] n, int b, String[] o) {
 		messageList = new ArrayList<MessageControl>();
 		logList = new ArrayList<String>();
 		comunicateList = new ArrayList<Comunicate>();

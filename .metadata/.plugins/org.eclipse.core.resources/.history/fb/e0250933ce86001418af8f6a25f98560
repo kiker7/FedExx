@@ -154,7 +154,6 @@ public class GraphView extends JFrame implements ActionListener {
 
 		} else if (choosen == btnStop) {
 			isStopped = true;
-			textArea_1.setText("nie dzialat");
 		}
 	}
 }

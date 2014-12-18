@@ -132,8 +132,8 @@ public class GraphView extends JFrame implements ActionListener {
 								// uaktualnienia w gui
 								// ZOSTA£O ZAKTUALIZOWAC KOMUNIKATY ZROBIC GRAF
 								// I WYSWIETLAC
-								textField.setText(Integer.toString(1)); // ustawiay nr samochodu
-								textField_1.setText(Integer.toString(communicate.getDistance())); // ustawiamy
+								textField.setText(1); // ustawiay nr samochodu
+								textField_1.setText(communicate.getDistance()); // ustawiamy
 																				// czas
 								textArea.setText(communicate.getordersView()); // ustawiamy
 																				// liste
@@ -154,7 +154,6 @@ public class GraphView extends JFrame implements ActionListener {
 
 		} else if (choosen == btnStop) {
 			isStopped = true;
-			textArea_1.setText("nie dzialat");
 		}
 	}
 }

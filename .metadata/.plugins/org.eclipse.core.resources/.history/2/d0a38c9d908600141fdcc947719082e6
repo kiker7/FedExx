@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import logic2.Order;
 import data_structure.Heap;
@@ -18,11 +17,13 @@ public class OrderRead {
 	private int baseCity;
 	private Order[] list;
 	private int count = 0;
-	private ArrayList<String> orderNames;
+	private String [] orderNames;
 	
 	public OrderRead(){
 		list = new Order[30];
-		orderNames = new ArrayList<String>();
+		for(int i = 0; i < orderNames.length -1 ; i++)
+			orderNames[i] = " ";
+			
 	}
 
 	/**
@@ -33,7 +34,7 @@ public class OrderRead {
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	
-	public ArrayList<String> getorderNames(){
+	public String[] getorderNames(){
 		return orderNames;
 	}
 	
@@ -66,7 +67,7 @@ public class OrderRead {
 				bc = intParser(parts[1]);
 				oc = intParser(parts[2]);
 				cname = nameRead(parts);
-				orderNames.add(cname);
+				orderNames[count++] = cname;
 				pr = intParser(parts[parts.length - 1]);
 				priorityQueue.push(new Order(id, bc, oc, cname, pr));
 				list[count++] = new Order(id, bc, oc, cname, pr);

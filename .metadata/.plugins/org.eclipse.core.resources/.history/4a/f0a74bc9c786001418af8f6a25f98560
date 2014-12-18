@@ -41,7 +41,7 @@ public class Parser {
 		
 	}
 	
-	public ArrayList<String> getOrderNames(){
+	public String[] getOrderNames(){
 		return orderNames;
 	}
 

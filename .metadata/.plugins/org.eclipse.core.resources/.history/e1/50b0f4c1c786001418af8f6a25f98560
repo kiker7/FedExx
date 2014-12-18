@@ -37,11 +37,10 @@ public class Parser {
 	public Parser(){
 		mReader = new MapRead();
 		oReader = new OrderRead();
-		orderNames = new ArrayList<String>();
 		
 	}
 	
-	public ArrayList<String> getOrderNames(){
+	public String[] getOrderNames(){
 		return orderNames;
 	}
 

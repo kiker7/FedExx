@@ -8,8 +8,6 @@ import java.io.IOException;
 
 
 
-import java.util.ArrayList;
-
 import data_structure.Heap;
 import dijsktra.Map;
 import edu.uci.ics.jung.graph.Graph;
@@ -23,7 +21,7 @@ public class Parser {
 	private OrderRead oReader;
 	private int baseCity;
 	private Graph<String, String> g;
-	private ArrayList<String> orderNames;
+	private String [] orderNames;
 
 	/**
 	 * Parser.
@@ -37,11 +35,10 @@ public class Parser {
 	public Parser(){
 		mReader = new MapRead();
 		oReader = new OrderRead();
-		orderNames = new ArrayList<String>();
 		
 	}
 	
-	public ArrayList<String> getOrderNames(){
+	public String[] getOrderNames(){
 		return orderNames;
 	}
 

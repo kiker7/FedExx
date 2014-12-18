@@ -13,11 +13,11 @@ public class Comunicate {
 		log = l;
 		distance = d;
 		orderListLog = oL;
-		for(int i = 0 ; i < orderListLog.size() -1 ; i++)
-			ordersView += orderListLog.remove(i);
+		for(String x : orderListLog)
+			ordersView += (orderListLog.remove(x) + "/n") ;
 	}
 	
-	public String getordersView(){
+	public String get ordersView(){
 		return ordersView;
 	}
 	

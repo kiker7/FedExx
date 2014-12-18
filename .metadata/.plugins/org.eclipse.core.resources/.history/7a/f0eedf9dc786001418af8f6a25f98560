@@ -33,7 +33,7 @@ public class OrderRead {
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
 	
-	public ArrayList<String> getorderNames(){
+	public String[] getorderNames(){
 		return orderNames;
 	}
 	
