@@ -1,7 +1,7 @@
 package logic2;
 
-
 import java.util.ArrayList;
+
 
 public class Trip {
 
@@ -9,45 +9,64 @@ public class Trip {
 	private ArrayList<String> logList;
 	private String[] cityNames = null;
 	private int baseCity;
-	
-	public Trip(String [] n, int b){
+	private ArrayList<Comunicate> comunicateList;
+	private String[] orderNames;
+
+	public Trip(String[] n, int b, String[] o) {
 		messageList = new ArrayList<MessageControl>();
 		logList = new ArrayList<String>();
+		comunicateList = new ArrayList<Comunicate>();
+		orderNames = o;
 		cityNames = n;
 		baseCity = b;
 	}
+
+	public Comunicate getLastComunicate(){
+		return comunicateList.remove(comunicateList.size() -1);
+	}
 	
-	public String getCityNameByItsNumber(int number){
-		for(int i = 0; i < cityNames.length ; i++)
-			if(number == i)
+	public int getLogListSize(){
+		return logList.size();
+	}
+	
+	public String getCityNameByItsNumber(int number) {
+		for (int i = 0; i < cityNames.length; i++)
+			if (number == i)
 				return cityNames[i];
 		return null;
 	}
+
+	public ArrayList<Comunicate> getCommunicateList(){
+		return comunicateList;
+	}
 	
-	public void addMessageControl(MessageControl mes){
+	public void addMessageControl(MessageControl mes) {
 		messageList.add(mes);
 	}
-	
-	public void createLogList(){
+
+	public void createLogList() {
 		ArrayList<Integer> idList = new ArrayList<Integer>();
 
-	
-		
-		for(MessageControl x : messageList)
+		for (MessageControl x : messageList)
 			idList.add(x.getOrderNumberInPath());
-	
-		
-		for(MessageControl n : messageList){
-			logList.add(n.getOrderTime()+ " dostarczono przesy³ke " + n.getOrderNumberInPath() + " do miasta " + this.getCityNameByItsNumber(n.getCityNumberInPath()));
+
+		for (MessageControl n : messageList) {
+			logList.add(n.getOrderTime() + " dostarczono przesy³ke "
+					+ n.getOrderNumberInPath() + " do miasta "
+					+ this.getCityNameByItsNumber(n.getCityNumberInPath()));
+			comunicateList.add(new Comunicate(logList.get(logList.size() - 1),
+					n.getOrderTime(), orderNames));
 		}
-		
-		logList.add("0 pobrano przesy³ki " + idList + " z miasta " + this.getCityNameByItsNumber(this.baseCity));
-		
-		
+
+		logList.add("0 pobrano przesy³ki " + idList + " z miasta "
+				+ this.getCityNameByItsNumber(this.baseCity));
+		comunicateList.add(new Comunicate(logList.get(logList.size() - 1), 0,
+				orderNames));
+
 	}
 
-	public ArrayList<String> getLogList(){
+	public ArrayList<String> getLogList() {
 		return logList;
 	}
-	
+
 }

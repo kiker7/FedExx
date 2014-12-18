@@ -1,0 +1,30 @@
+package gui;
+
+import java.awt.EventQueue;
+import java.io.IOException;
+
+import logic2.Logic;
+import logic2.Parser;
+
+public class Main {
+
+public static void main(String[] args) throws IOException {
+		
+		Parser p = new Parser();
+		p.parser(args);
+		final Logic l = new Logic(p);
+		l.allocation();
+		
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					GraphView frame = new GraphView(l);
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+}

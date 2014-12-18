@@ -1,0 +1,16 @@
+package gui;
+
+import edu.uci.ics.jung.graph.Graph;
+import edu.uci.ics.jung.graph.SparseMultigraph;
+
+public class GraphMap {
+
+	Graph<String, String> g;
+	
+	public GraphMap(){
+		
+		g = new SparseMultigraph<String, String>();
+		
+	}
+	
+}

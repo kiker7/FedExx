@@ -7,8 +7,10 @@ import java.io.File;
 import java.io.IOException;
 
 
+
 import data_structure.Heap;
 import dijsktra.Map;
+import edu.uci.ics.jung.graph.Graph;
 
 public class Parser {
 
@@ -18,6 +20,8 @@ public class Parser {
 	private MapRead mReader;
 	private OrderRead oReader;
 	private int baseCity;
+	private Graph<String, String> g;
+	private String [] orderNames;
 
 	/**
 	 * Parser.
@@ -33,7 +37,15 @@ public class Parser {
 		oReader = new OrderRead();
 		
 	}
+	
+	public String[] getOrderNames(){
+		return orderNames;
+	}
 
+	public Graph<String,String> getGraph(){
+		return g;
+	}
+	
 	public int getBaseCity(){
 		return baseCity;
 	}
@@ -67,10 +79,12 @@ public class Parser {
 			switch (i) {
 			case 0:
 				map = mReader.mapRead(new File(args[0]));
+				g = mReader.getGraph();
 				break;
 			case 1:
 				priorityList = oReader.orderRead(new File(args[1]));
 				baseCity = oReader.getBaseCity();
+				orderNames = oReader.getorderNames();
 				break;
 			case 2:
 				nCars = Integer.parseInt(args[2]);

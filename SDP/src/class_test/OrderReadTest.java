@@ -5,7 +5,7 @@ import io.OrderRead;
 import java.io.File;
 import java.io.IOException;
 
-import logic.Order;
+import logic2.Order;
 import data_structure.Heap;
 
 public class OrderReadTest {

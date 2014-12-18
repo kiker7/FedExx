@@ -17,6 +17,7 @@ public class OrderRead {
 	private int baseCity;
 	private Order[] list;
 	private int count = 0;
+	private String [] orderNames;
 	
 	public OrderRead(){
 		list = new Order[30];
@@ -29,6 +30,10 @@ public class OrderRead {
 	 * @return the heap
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
+	
+	public String[] getorderNames(){
+		return orderNames;
+	}
 	
 	public Order[] getOrderList(){
 		return list;
@@ -49,6 +54,7 @@ public class OrderRead {
 			input = new BufferedReader(new FileReader(filename));
 			String buffer;
 			int id, bc, oc, pr;
+			int count = 0;
 			String cname;
 			buffer = input.readLine();
 			baseCity = Integer.parseInt(buffer);
@@ -58,6 +64,7 @@ public class OrderRead {
 				bc = intParser(parts[1]);
 				oc = intParser(parts[2]);
 				cname = nameRead(parts);
+				orderNames[count++] = cname;
 				pr = intParser(parts[parts.length - 1]);
 				priorityQueue.push(new Order(id, bc, oc, cname, pr));
 				list[count++] = new Order(id, bc, oc, cname, pr);

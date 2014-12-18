@@ -1,0 +1,85 @@
+package logic2;
+
+import java.util.ArrayList;
+
+import data_structure.Heap;
+import edu.uci.ics.jung.graph.Graph;
+
+public class Logic {
+
+	private Car[] carList;
+	private Parser parser;
+	private ArrayList<Order> orderList;
+	private Heap<Order> priorityList;
+	private Message messenger;
+	private Graph<String, String> g;
+
+	public Logic(Parser p) {
+
+		parser = p;
+		carList = new Car[parser.getNCars()];
+		priorityList = p.getHeap();
+		orderList = new ArrayList<Order>();
+		messenger = new Message();
+		g = p.getGraph();
+		for (int i = 0; i < parser.getNCars(); i++) {
+			carList[i] = new Car(p.getNPackInCar());
+		}
+
+		while (!priorityList.isEmpty()) {
+			orderList.add(priorityList.pop());
+		}
+	}
+
+	public Message getMessage(){
+		return messenger;
+	}
+	
+	public Order findAvailableOrder(int oc) {
+		for (Order x : orderList) {
+			if (x.getOrderCity() == oc)
+				return x;
+		}
+		return null;
+	}
+
+	public void allocation() {
+
+		while (!orderList.isEmpty()) {
+			for (int i = 0; i < parser.getNCars(); i++) {
+				if (!orderList.isEmpty()) {
+					Order tmp;
+					Order order = orderList.remove(0);
+					carList[i].addNumberOfPackInside();
+
+					int distance = parser.getMap().getShortestPath(
+							order.getBaseCity(), order.getOrderCity());
+					int[] vc = parser.getMap().getVisitedCities();
+					Trip trip = new Trip(parser.getMap().getCityNames(), parser.getBaseCity());
+					trip.addMessageControl(new MessageControl(order
+							.getOrderCity(), order.getId(), distance));
+					if (parser.getNPackInCar() != 1)
+						for (int j = parser.getMap().getVCAL() - 2; j > 1; j--) {
+							tmp = this.findAvailableOrder(vc[j]);
+							if (tmp != null) {
+								trip.addMessageControl(new MessageControl(
+										vc[j], tmp.getId(), parser.getMap()
+												.getShortestPath(
+														order.getBaseCity(),
+														tmp.getOrderCity())));
+								orderList.remove(tmp);
+							} else
+								break;
+						}
+					messenger.setNewTrip(trip);
+				} else {
+					break;
+				}
+
+			}
+
+		}
+		messenger.displayLogTrips();
+	}
+
+}

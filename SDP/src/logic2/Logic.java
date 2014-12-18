@@ -3,6 +3,7 @@ package logic2;
 import java.util.ArrayList;
 
 import data_structure.Heap;
+import edu.uci.ics.jung.graph.Graph;
 
 public class Logic {
 
@@ -11,6 +12,7 @@ public class Logic {
 	private ArrayList<Order> orderList;
 	private Heap<Order> priorityList;
 	private Message messenger;
+	private Graph<String, String> g;
 
 	public Logic(Parser p) {
 
@@ -19,6 +21,7 @@ public class Logic {
 		priorityList = p.getHeap();
 		orderList = new ArrayList<Order>();
 		messenger = new Message();
+		g = p.getGraph();
 		for (int i = 0; i < parser.getNCars(); i++) {
 			carList[i] = new Car(p.getNPackInCar());
 		}
@@ -27,7 +30,15 @@ public class Logic {
 			orderList.add(priorityList.pop());
 		}
 	}
+	
+	public Graph<String,String> getGraph(){
+		return g;
+	}
 
+	public Message getMessage(){
+		return messenger;
+	}
+	
 	public Order findAvailableOrder(int oc) {
 		for (Order x : orderList) {
 			if (x.getOrderCity() == oc)
@@ -48,7 +59,7 @@ public class Logic {
 					int distance = parser.getMap().getShortestPath(
 							order.getBaseCity(), order.getOrderCity());
 					int[] vc = parser.getMap().getVisitedCities();
-					Trip trip = new Trip(parser.getMap().getCityNames(), parser.getBaseCity());
+					Trip trip = new Trip(parser.getMap().getCityNames(), parser.getBaseCity(), parser.getOrderNames());
 					trip.addMessageControl(new MessageControl(order
 							.getOrderCity(), order.getId(), distance));
 					if (parser.getNPackInCar() != 1)
@@ -72,7 +83,7 @@ public class Logic {
 			}
 
 		}
-		messenger.displayLogTrips();
+		messenger.createLogListForTrips();;
 	}
 
 }

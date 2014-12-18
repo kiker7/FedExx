@@ -1,44 +1,52 @@
 package gui;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
 import java.awt.Color;
-import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 
-public class GraphView extends JFrame {
+import edu.uci.ics.jung.graph.Graph;
+import logic2.Comunicate;
+import logic2.Logic;
+import logic2.Trip;
 
+
+public class GraphView extends JFrame implements ActionListener {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextField textField_1;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GraphView frame = new GraphView();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private Logic logic;
+	private JButton btnStart;
+	private JButton btnStop;
+	private boolean isStopped;
+	private long time = 1000;
+	private ArrayList<Trip> tripList;
+	private Comunicate communicate;
+	private Graph<String, String> graph;  // PRAWDOPODOBNIE TRZEBA BEDZIE PRZEKAZAC DO PANELU WYSWIETLAJACEGO
+	
 
 	/**
 	 * Create the frame.
 	 */
-	public GraphView() {
+	public GraphView(Logic l) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 740, 600);
 		contentPane = new JPanel();
@@ -55,10 +63,14 @@ public class GraphView extends JFrame {
 		JButton btnStart = new JButton("START");
 		btnStart.setBounds(510, 50, 89, 23);
 		contentPane.add(btnStart);
+		btnStart.addActionListener(this);
+		btnStart.setToolTipText("Naciœnij aby rozpocz¹æ");
 		
 		JButton btnStop = new JButton("STOP");
 		btnStop.setBounds(628, 50, 89, 23);
 		contentPane.add(btnStop);
+		btnStart.addActionListener(this);
+		btnStart.setToolTipText("Naciœnij aby zakoñczyæ");
 		
 		JLabel lblNumerSamochodu = new JLabel("Numer samochodu:");
 		lblNumerSamochodu.setBounds(522, 123, 114, 14);
@@ -79,7 +91,7 @@ public class GraphView extends JFrame {
 		textField_1.setColumns(10);
 		
 		JLabel lblListaZlecen = new JLabel("Lista paczek w samochodzie:");
-		lblListaZlecen.setBounds(520, 214, 157, 14);
+		lblListaZlecen.setBounds(520, 214, 176, 14);
 		contentPane.add(lblListaZlecen);
 		
 		JTextArea textArea = new JTextArea();
@@ -93,5 +105,47 @@ public class GraphView extends JFrame {
 		JTextArea textArea_1 = new JTextArea();
 		textArea_1.setBounds(10, 438, 490, 94);
 		contentPane.add(textArea_1);
+		
+		logic = l;
+		isStopped = false;
+		tripList = new ArrayList<Trip>();
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object choosen = e.getSource();
+		
+		if(choosen == btnStart){
+			isStopped = false;
+
+			new Thread() {
+				@Override
+				public void run() {
+					tripList = logic.getMessage().getTripList();
+					while (isStopped == false ) {
+						for(Trip n : tripList){
+							// imitacja jednego rozwozenia w petli
+							//czyli tak jakby jeden samochod
+							for(int i = n.getLogListSize() -1 ; i < 0 ; i--){
+								communicate = n.getLastComunicate();
+								// tutaj juz mam gotowy komunikat do uaktualnienia w gui
+								// ZOSTA£O ZAKTUALIZOWAC KOMUNIKATY ZROBIC GRAF I WYSWIETLAC
+							}
+						}
+					
+						
+						try {
+							Thread.sleep(time);
+						} catch (InterruptedException ew) {
+							Logger.getLogger(GraphView.class.getName()).log(
+									Level.SEVERE, null, ew);
+						}
+					}
+				}
+			}.start();
+			
+		}else if(choosen == btnStop){
+			isStopped = true;
+		}
 	}
 }

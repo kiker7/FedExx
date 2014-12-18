@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import dijsktra.Map;
+import edu.uci.ics.jung.graph.Graph;
+import edu.uci.ics.jung.graph.SparseMultigraph;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -13,6 +15,9 @@ import dijsktra.Map;
  */
 public class MapRead {
 
+	
+	Graph<String, String> g;
+	
 	/**
 	 * Map read.
 	 *
@@ -20,9 +25,15 @@ public class MapRead {
 	 * @return the map
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
+	
+	public Graph<String,String> getGraph(){
+		return g;
+	}
+	
 	public Map mapRead(File fileName) throws IOException {
 		BufferedReader input = null;
 		Map map = null;
+		g = new SparseMultigraph<String, String>();
 		try {
 			input = new BufferedReader(new FileReader(fileName));
 			String buffer;
@@ -32,12 +43,16 @@ public class MapRead {
 				String parts[] = buffer.split("\\s+");
 				if (parts[0].equals("#"))
 					continue;
-				if (parts.length == 2)
+				if (parts.length == 2){
 					map.addCity(Integer.parseInt(parts[0]),parts[1]);
-				else if (parts.length == 3)
+					g.addVertex(parts[1]);
+				}
+				else if (parts.length == 3){
 					map.addEdge(Integer.parseInt(parts[0]),
 							Integer.parseInt(parts[1]),
 							Integer.parseInt(parts[2]));
+					g.addEdge(parts[2], parts[0], parts[1]);
+				}
 			}
 		} catch (IOException e) {
 			System.err.println(e.getMessage());
