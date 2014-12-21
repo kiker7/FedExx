@@ -66,7 +66,7 @@ public class OrderRead {
 				bc = intParser(parts[1]);
 				oc = intParser(parts[2]);
 				cname = nameRead(parts);
-				orderNames.add(cname);
+				orderNames.add(cname);				
 				pr = intParser(parts[parts.length - 1]);
 				priorityQueue.push(new Order(id, bc, oc, cname, pr));
 				list[count++] = new Order(id, bc, oc, cname, pr);

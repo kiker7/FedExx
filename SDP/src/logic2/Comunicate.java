@@ -7,19 +7,23 @@ public class Comunicate {
 	private String log;
 	private int distance;
 	private ArrayList<String> orderListLog;
-	private String ordersView;
+
 
 	public Comunicate(String l, int d, ArrayList<String>  oL){
 		log = l;
 		distance = d;
 		orderListLog = oL;
-		for(int i = 0 ; i < orderListLog.size() -1 ; i++)
-			ordersView += orderListLog.remove(i);
+
 	}
 	
-	public String getordersView(){
-		return ordersView;
+	
+	
+	@Override
+	public String toString() {
+		return "Komunikat: (log): "+ log + " DISTANCE: " + distance + " ORDERSVIEW: " +orderListLog;
 	}
+
+
 	
 	public String getLog(){
 		return log;

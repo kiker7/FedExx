@@ -46,27 +46,45 @@ public class Trip {
 
 	public void createLogList() {
 		ArrayList<Integer> idList = new ArrayList<Integer>();
-
+		ArrayList<String> currentOrderNames = new ArrayList<String>();
+		
 		for (MessageControl x : messageList)
 			idList.add(x.getOrderNumberInPath());
 
+		// tutaj na podstawie idlist zrobic orderNames zgodne z id 
+		
+		for(String x : orderNames)
+			for(int n : idList)
+				if(n == orderNames.indexOf(x) + 1)
+					currentOrderNames.add(x);
+					
+		
 		for (MessageControl n : messageList) {
 			logList.add(n.getOrderTime() + " dostarczono przesy³ke "
 					+ n.getOrderNumberInPath() + " do miasta "
 					+ this.getCityNameByItsNumber(n.getCityNumberInPath()));
 			comunicateList.add(new Comunicate(logList.get(logList.size() - 1),
-					n.getOrderTime(), orderNames));
+					n.getOrderTime(), currentOrderNames));
 		}
 
 		logList.add("0 pobrano przesy³ki " + idList + " z miasta "
 				+ this.getCityNameByItsNumber(this.baseCity));
 		comunicateList.add(new Comunicate(logList.get(logList.size() - 1), 0,
-				orderNames));
+				currentOrderNames));
 
+	}
+	
+	public ArrayList<String> getOrderNamesList(){
+		return orderNames;
 	}
 
 	public ArrayList<String> getLogList() {
 		return logList;
+	}
+	
+	//funkcja testowa przy wypisywaniu komunikatu
+	public ArrayList<Comunicate> getComunicateList(){
+		return comunicateList;
 	}
 
 }

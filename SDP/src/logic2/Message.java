@@ -28,7 +28,8 @@ public class Message {
 	public void displayLogTrips(){
 		for(Trip n: tripList){
 			n.createLogList();
-			System.out.println(n.getLogList());
+			//System.out.println(n.getLogList());
+			System.out.println(n.getComunicateList());			
 		}
 		
 	}

@@ -115,46 +115,7 @@ public class GraphView extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object choosen = e.getSource();
 
-		if (choosen == btnStart) {
-			isStopped = false;
 
-			new Thread() {
-				@Override
-				public void run() {
-					tripList = logic.getMessage().getTripList();
-					while (isStopped == false) {
-						for (Trip n : tripList) {
-							// imitacja jednego rozwozenia w petli
-							// czyli tak jakby jeden samochod
-							for (int i = n.getLogListSize() - 1; i < 0; i--) {
-								communicate = n.getLastComunicate();
-								// tutaj juz mam gotowy komunikat do
-								// uaktualnienia w gui
-								// ZOSTA£O ZAKTUALIZOWAC KOMUNIKATY ZROBIC GRAF
-								// I WYSWIETLAC
-								textField.setText(Integer.toString(1)); // ustawiay nr samochodu
-								textField_1.setText(Integer.toString(communicate.getDistance())); // ustawiamy
-																				// czas
-								textArea.setText(communicate.getordersView()); // ustawiamy
-																				// liste
-																				// zlecen
-								textArea_1.setText(communicate.getLog());
-							}
-
-							try {
-								Thread.sleep(time);
-							} catch (InterruptedException ew) {
-								Logger.getLogger(GraphView.class.getName())
-										.log(Level.SEVERE, null, ew);
-							}
-						}
-					}
-				}
-			}.start();
-
-		} else if (choosen == btnStop) {
-			isStopped = true;
-			textArea_1.setText("nie dzialat");
-		}
+			
 	}
 }
