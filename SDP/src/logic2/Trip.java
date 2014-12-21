@@ -1,6 +1,7 @@
 package logic2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class Trip {
@@ -72,6 +73,7 @@ public class Trip {
 		comunicateList.add(new Comunicate(logList.get(logList.size() - 1), 0,
 				currentOrderNames));
 
+		Collections.reverse(comunicateList);
 	}
 	
 	public ArrayList<String> getOrderNamesList(){

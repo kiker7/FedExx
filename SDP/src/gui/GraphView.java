@@ -8,13 +8,14 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import edu.uci.ics.jung.graph.Graph;
 import logic2.Comunicate;
@@ -32,9 +33,8 @@ public class GraphView extends JFrame implements ActionListener {
 	private JTextField textField_1;
 	private JTextArea textArea;
 	private JTextArea textArea_1;
+	private JButton btnKrok;
 	private Logic logic;
-	private JButton btnStart;
-	private JButton btnStop;
 	private boolean isStopped;
 	private long time = 1000;
 	private ArrayList<Trip> tripList;
@@ -60,18 +60,6 @@ public class GraphView extends JFrame implements ActionListener {
 		panel.setBounds(0, 0, 500, 400);
 		contentPane.add(panel);
 
-		btnStart = new JButton("START");
-		btnStart.setBounds(510, 50, 89, 23);
-		contentPane.add(btnStart);
-		btnStart.addActionListener(this);
-		btnStart.setToolTipText("Naciœnij aby rozpocz¹æ");
-
-		btnStop = new JButton("STOP");
-		btnStop.setBounds(628, 50, 89, 23);
-		contentPane.add(btnStop);
-		btnStart.addActionListener(this);
-		btnStart.setToolTipText("Naciœnij aby zakoñczyæ");
-
 		JLabel lblNumerSamochodu = new JLabel("Numer samochodu:");
 		lblNumerSamochodu.setBounds(522, 123, 114, 14);
 		contentPane.add(lblNumerSamochodu);
@@ -95,7 +83,7 @@ public class GraphView extends JFrame implements ActionListener {
 		contentPane.add(lblListaZlecen);
 
 		textArea = new JTextArea();
-		textArea.setBounds(520, 239, 168, 102);
+		textArea.setBounds(520, 239, 198, 102);
 		contentPane.add(textArea);
 
 		JLabel lblKomunikaty = new JLabel("Komunikaty:");
@@ -106,16 +94,41 @@ public class GraphView extends JFrame implements ActionListener {
 		textArea_1.setBounds(10, 438, 490, 94);
 		contentPane.add(textArea_1);
 
+		btnKrok = new JButton("KROK");
+		btnKrok.setBounds(528, 43, 168, 46);
+		contentPane.add(btnKrok);
+		btnKrok.addActionListener(this);
+
 		logic = l;
 		isStopped = false;
 		tripList = new ArrayList<Trip>();
+		time = 1000;
+
+		try {
+			UIManager
+					.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+		} catch (ClassNotFoundException | InstantiationException
+				| IllegalAccessException | UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+		}
+		SwingUtilities.updateComponentTreeUI(this);
+
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object choosen = e.getSource();
 
+		if (choosen == btnKrok) {
+			if (!logic.getMessage().getFinalComunicateList().isEmpty()) {
+				Comunicate c = logic.getMessage().getFinalComunicateList()
+						.remove(0);
+				textField.setText("1");
+				textField_1.setText(Integer.toString(c.getDistance()));
+				textArea.setText(c.getOrderView()); 
+				textArea_1.setText(c.getLog());
+			}
+		}
 
-			
 	}
 }
