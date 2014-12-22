@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import dijsktra.Map;
 import edu.uci.ics.jung.graph.Graph;
@@ -16,8 +17,12 @@ import edu.uci.ics.jung.graph.SparseMultigraph;
 public class MapRead {
 
 	
-	Graph<String, String> g;
+	private Graph<String, String> g;
+	private ArrayList<String> cityNamesArray;
 	
+	public MapRead(){
+		cityNamesArray = new ArrayList<String>();
+	}
 	/**
 	 * Map read.
 	 *
@@ -28,6 +33,13 @@ public class MapRead {
 	
 	public Graph<String,String> getGraph(){
 		return g;
+	}
+	
+	public String findCityByItsNumber(int n){
+		for(String x : cityNamesArray)
+			if(cityNamesArray.indexOf(x) == n)
+				return x;
+		return null;
 	}
 	
 	public Map mapRead(File fileName) throws IOException {
@@ -45,13 +57,14 @@ public class MapRead {
 					continue;
 				if (parts.length == 2){
 					map.addCity(Integer.parseInt(parts[0]),parts[1]);
-					g.addVertex(parts[1]);
+					g.addVertex((String)parts[1]);
+					cityNamesArray.add(parts[1]);
 				}
 				else if (parts.length == 3){
 					map.addEdge(Integer.parseInt(parts[0]),
 							Integer.parseInt(parts[1]),
 							Integer.parseInt(parts[2]));
-					g.addEdge(parts[2], parts[0], parts[1]);
+					g.addEdge(parts[2], findCityByItsNumber(Integer.parseInt(parts[0])), findCityByItsNumber(Integer.parseInt(parts[1])));
 				}
 			}
 		} catch (IOException e) {

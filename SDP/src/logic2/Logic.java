@@ -31,6 +31,10 @@ public class Logic {
 		}
 	}
 	
+	public Parser getParser(){
+		return parser;
+	}
+	
 	public Graph<String,String> getGraph(){
 		return g;
 	}

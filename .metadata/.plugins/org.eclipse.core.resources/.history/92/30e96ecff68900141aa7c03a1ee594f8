@@ -1,0 +1,69 @@
+package io;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
+import dijsktra.Map;
+import edu.uci.ics.jung.graph.Graph;
+import edu.uci.ics.jung.graph.SparseMultigraph;
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MapRead.
+ */
+public class MapRead {
+
+	
+	private Graph<String, String> g;
+	private String[] cityNamesArray;
+	
+	public MapRead(){
+		cityNamesArray = new String[30];
+	}
+	/**
+	 * Map read.
+	 *
+	 * @param fileName the file name
+	 * @return the map
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
+	
+	public Graph<String,String> getGraph(){
+		return g;
+	}
+	
+	public Map mapRead(File fileName) throws IOException {
+		BufferedReader input = null;
+		Map map = null;
+		g = new SparseMultigraph<String, String>();
+		try {
+			input = new BufferedReader(new FileReader(fileName));
+			String buffer;
+			buffer = input.readLine();
+			map = new Map(Integer.parseInt(buffer));
+			while ((buffer = input.readLine()) != null) {
+				String parts[] = buffer.split("\\s+");
+				if (parts[0].equals("#"))
+					continue;
+				if (parts.length == 2){
+					map.addCity(Integer.parseInt(parts[0]),parts[1]);
+					g.addVertex((String)parts[1]);
+				}
+				else if (parts.length == 3){
+					map.addEdge(Integer.parseInt(parts[0]),
+							Integer.parseInt(parts[1]),
+							Integer.parseInt(parts[2]));
+					g.addEdge(parts[2], parts[0], parts[1]);
+				}
+			}
+		} catch (IOException e) {
+			System.err.println(e.getMessage());
+		} finally {
+			if (input != null)
+				input.close();
+		}
+		return map;
+	}
+}

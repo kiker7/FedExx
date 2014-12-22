@@ -65,13 +65,13 @@ public class Trip {
 					+ n.getOrderNumberInPath() + " do miasta "
 					+ this.getCityNameByItsNumber(n.getCityNumberInPath()));
 			comunicateList.add(new Comunicate(logList.get(logList.size() - 1),
-					n.getOrderTime(), currentOrderNames));
+					n.getOrderTime(), currentOrderNames,this.getCityNameByItsNumber(n.getCityNumberInPath()), n.getCityNumberInPath(), cityNames));
 		}
 
 		logList.add("0 pobrano przesy³ki " + idList + " z miasta "
 				+ this.getCityNameByItsNumber(this.baseCity));
 		comunicateList.add(new Comunicate(logList.get(logList.size() - 1), 0,
-				currentOrderNames));
+				currentOrderNames,this.getCityNameByItsNumber(this.baseCity),0, cityNames));
 
 		Collections.reverse(comunicateList);
 	}
