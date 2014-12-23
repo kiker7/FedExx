@@ -13,9 +13,11 @@ public class Logic {
 	private Heap<Order> priorityList;
 	private Message messenger;
 	private Graph<String, String> g;
+	private ArrayList<String> edgeList;
 
 	public Logic(Parser p) {
-
+		
+		edgeList = new ArrayList<String>();
 		parser = p;
 		carList = new Car[parser.getNCars()];
 		priorityList = p.getHeap();
@@ -59,11 +61,16 @@ public class Logic {
 					Order tmp;
 					Order order = orderList.remove(0);
 					carList[i].addNumberOfPackInside();
-
+				
 					int distance = parser.getMap().getShortestPath(
 							order.getBaseCity(), order.getOrderCity());
+					// z tego wywolania getShortestPath musze wyciagnac edgeStringList i dodac do tripa
+					edgeList = parser.getMap().getEdgeStringList();
 					int[] vc = parser.getMap().getVisitedCities();
-					Trip trip = new Trip(parser.getMap().getCityNames(), parser.getBaseCity(), parser.getOrderNames());
+					Trip trip = new Trip(parser.getMap().getCityNames(), parser.getBaseCity(), parser.getOrderNames(),edgeList);
+					
+					System.out.println(edgeList);
+				
 					trip.addMessageControl(new MessageControl(order
 							.getOrderCity(), order.getId(), distance));
 					if (parser.getNPackInCar() != 1)

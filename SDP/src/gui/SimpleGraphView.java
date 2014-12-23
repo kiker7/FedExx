@@ -79,17 +79,17 @@ public class SimpleGraphView {
 		
 		final Stroke edgeStroke2 = new BasicStroke(2.0f, BasicStroke.CAP_SQUARE,
 				BasicStroke.JOIN_ROUND, 8.0f, dash, 0.0f);
-		/*
+		
 		Transformer<String, Stroke> edgeStrokeTransformer = new Transformer<String, Stroke>() {
 			public Stroke transform(String s) {
 				if(s.equalsIgnoreCase("Edge-B"))
 					return edgeStroke;
 				return edgeStroke2;
 			}
-		};*/
+		};
 
 		vv.getRenderContext().setVertexFillPaintTransformer(vertexPaint);
-	//	vv.getRenderContext().setEdgeStrokeTransformer(edgeStrokeTransformer);
+		vv.getRenderContext().setEdgeStrokeTransformer(edgeStrokeTransformer);
 	
 		
 		vv.getRenderContext().setVertexLabelTransformer(new ToStringLabeller());

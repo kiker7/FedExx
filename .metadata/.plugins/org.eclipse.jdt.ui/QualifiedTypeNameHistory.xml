@@ -58,6 +58,6 @@
 <fullyQualifiedTypeName name="edu.uci.ics.jung.visualization.decorators.ToStringLabeller"/>
 <fullyQualifiedTypeName name="edu.uci.ics.jung.visualization.renderers.Renderer.VertexLabel.Position"/>
 <fullyQualifiedTypeName name="dijsktra.Map"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.awt.BasicStroke"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

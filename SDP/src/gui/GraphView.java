@@ -55,6 +55,7 @@ public class GraphView extends JFrame implements ActionListener {
 	private String previousCity;
 	private ArrayList<String> edgeStringList;
 	
+	
 
 	/**
 	 * Create the frame.
@@ -110,6 +111,7 @@ public class GraphView extends JFrame implements ActionListener {
 		graph = logic.getGraph();
 		edgeStringList = new ArrayList<String>();
 		previousCity = "Suwa³ki";
+
 		
 		SparseMultigraph<String, String> smg = null;
 		smg = (SparseMultigraph<String, String>) graph;
@@ -157,10 +159,29 @@ public class GraphView extends JFrame implements ActionListener {
 		            }
 		        };  
 		        
+		        float dash[]  = { 10.0f };
+		    	final Stroke edgeStroke = new BasicStroke(1.0f, BasicStroke.CAP_BUTT,
+		    			BasicStroke.JOIN_MITER, 10.0f, dash, 0.0f);
+		        
+		    	edgeStringList = c.getEdgesToChange();
+		    	System.out.println(edgeStringList);
+		    	
+		    	Transformer<String, Stroke> edgeStrokeTransformer = new Transformer<String, Stroke>() {
+					public Stroke transform(String s) {
+						for(String n: edgeStringList)
+						if(s.equalsIgnoreCase(n))
+							return edgeStroke;
+						return new BasicStroke();
+					}
+				};
+		    	
+				vv.getRenderContext().setEdgeStrokeTransformer(edgeStrokeTransformer);
 		        vv.getRenderContext().setVertexFillPaintTransformer(vertexPaint);
-				panel.repaint();			
-			}
-		}
+			 	panel.repaint();			
+		 	}else{
+				textArea_1.setText("Wszystkie paczki dostarczono!");
+		 	}
+	 	}
 
 	}
 }

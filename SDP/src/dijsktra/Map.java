@@ -9,11 +9,13 @@ public class Map {
 	private int limit, visitedCityArrLength;
 	private int[] visitedCities = null;
 	private ArrayList<String> edgeStringList;
+	private ArrayList<Integer> visCites;
 	
 	public Map(int n) {
 		limit = n;
 		cityNames = new String[limit];
 		visitedCities = new int[limit];
+		visCites = new ArrayList<Integer>();
 		edgeStringList = new ArrayList<String>();
 		for (int i = 0; i < limit; i++) {
 			cityNames[i] = " ";
@@ -63,6 +65,9 @@ public class Map {
 		int path = 0;
 		int count = 0;
 		visitedCities[count++] = from;
+		
+		visCites.add(from);
+		
 		int nextNode = from;
 		for (int i = from; i != to;) {
 			int shortest = INFINITY;
@@ -82,6 +87,9 @@ public class Map {
 			neighborhoodMatrix[i][nextNode].visit();
 			neighborhoodMatrix[nextNode][i].visit();
 			visitedCities[count++] = nextNode;
+			
+			visCites.add(nextNode);
+			
 			edgeStringList.add(Integer.toString(shortest));
 			path += shortest;
 			i = nextNode;
@@ -90,7 +98,7 @@ public class Map {
 		clearVisit();
 		return path;
 	}
-
+	
 	public ArrayList<String> getEdgeStringList(){
 		return edgeStringList;
 	}

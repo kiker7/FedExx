@@ -2,7 +2,6 @@ package logic2;
 
 import java.util.ArrayList;
 
-import dijsktra.Map;
 
 public class Comunicate {
 
@@ -14,9 +13,11 @@ public class Comunicate {
 	private String destinationCity; // do kolorowania wierzcho³ka
 	private int to; // do dijkstry miasto docelowe
 	private String[] cityNames = null;
+	private ArrayList<String> edgeStringList;
+	private ArrayList<String> edgeToChangeList;
 
 	//w konstruktorze dodac liste odwiedzonych krawedzi
-	public Comunicate(String l, int d, ArrayList<String>  oL, String dc, int toCity, String [] cn){
+	public Comunicate(String l, int d, ArrayList<String>  oL, String dc, int toCity, String [] cn,ArrayList<String> edgeList){
 		log = l;
 		distance = d;
 		orderListLog = oL;
@@ -24,6 +25,20 @@ public class Comunicate {
 		destinationCity = dc;
 		to = toCity;
 		cityNames = cn;
+		edgeStringList = edgeList;
+		edgeToChangeList = new ArrayList<String>();
+	}
+	
+	public ArrayList<String> getEdgesToChange(){
+		int sum = 0;
+		for(String x : edgeStringList){
+			sum += Integer.parseInt(x);
+			edgeToChangeList.add(x);
+			if(sum == distance)
+				return edgeToChangeList;
+		}
+		return null;
+			
 	}
 	
 	public int getCityIndexByName(String name){
